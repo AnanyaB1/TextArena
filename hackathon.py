@@ -22,7 +22,7 @@ env = ta.wrappers.LLMObservationWrapper(env=env)
 # Optional render wrapper
 env = ta.wrappers.SimpleRenderWrapper(
     env=env,
-    player_names={0: "GPT-4o-mini", 1: "claude-3.5-haiku"},
+    player_names={0: "claude 3.5", 1: "human"},
 )
 
 env.reset(num_players=len(agents))
