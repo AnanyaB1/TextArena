@@ -254,7 +254,6 @@ class ValidationAgent(Agent):
 
     def __call__(self, observation):
         for _ in range(self.num_tries):
-            print(negotiation.get_trade_value(observation, incoming=True))
             initial_answer = asyncio.run(self.agent(observation))
             validation_prompt = VALIDATION_PROMPT.format(
                 PROMPT=observation, ANSWER=initial_answer

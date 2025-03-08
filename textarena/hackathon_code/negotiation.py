@@ -33,13 +33,12 @@ def get_resource_value(observation: str) -> dict:
     return {resource: int(value) for resource, _, value in resources}
 
 
-def get_trade_value(observation: str, incoming: bool) -> int:
+def get_trade_value(resource_table: str, offer_text: str, incoming: bool) -> int:
     """Gets the value of a trade given by self (format: [Offer: 2 Wheat -> 3 Wood])
     Args:
         The big string of the observation"""
-    resource_value_dict = get_resource_value(observation)
-    print(resource_value_dict)
-    trade = re.findall(r"\[(?:Offer: )?([\d\s\w,]+) -> ([\d\s\w,]+)\]", observation)
+    resource_value_dict = get_resource_value(resource_table)
+    trade = re.findall(r"\[(?:Offer: )?([\d\s\w,]+) -> ([\d\s\w,]+)\]", offer_text)
     # get last trade
     trade = trade[-1] if trade else None
     if trade:
