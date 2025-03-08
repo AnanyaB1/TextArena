@@ -41,6 +41,7 @@ for _ in range(5):
         while not done:
             player_id, observation = env.get_observation()
             action = agent_(observation)
+            print("submitting action", action)
             done, info = env.step(action=action)
         env.close()
         print(info)

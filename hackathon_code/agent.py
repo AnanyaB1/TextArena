@@ -478,16 +478,17 @@ class OpenAIMCPAgent:
                                                             "tool_use_id": tool_id,
                                                             "content": result_str,  # Now it's a string
                                                         }
-                                                    ),
+                                                    )
+                                                    + "\nNow use this result to continue playing the game",
                                                 },
                                             ],
                                         }
                                     )
                                     if tool_name == "final_submission":
                                         is_tool_call_pending = False
-                                        final_response_text = tool_input[
-                                            "final_response"
-                                        ]
+                                        final_response_text = str(
+                                            tool_input["final_response"]
+                                        )
                             elif not message.tool_calls:
                                 # Accumulate text responses
                                 final_response_text += message.content
