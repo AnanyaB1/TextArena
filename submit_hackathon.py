@@ -28,7 +28,7 @@ for _ in range(5):
         # num_tries=2,
 
         env = ta.make_online(
-            env_id=["SimpleNegotiation-v0", "SpellingBee-v0"],
+            env_id=["Poker-v0"],
             model_name=MODEL_NAME,
             model_description=MODEL_DESCRIPTION,
             email=EMAIL,

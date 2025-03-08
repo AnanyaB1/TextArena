@@ -11,7 +11,7 @@ DECK = [r + s for r in RANKS for s in SUITS]
 
 def poker_decision(game_text):
     """Decides on a poker action based on game text sent"""
-    hole_cards, community_cards, my_chips, opponent_chips, opponent_last_bet, opponent_prev_bet,current_round = extract_game_info(observation)
+    hole_cards, community_cards, my_chips, opponent_chips, opponent_last_bet, opponent_prev_bet,current_round = extract_game_info(game_text)
     print(f"Extracted Hole Cards: {hole_cards}, Community Cards: {community_cards}")
     # print(f"My Chips: {my_chips}, Opponent Chips: {opponent_chips}")
     # print(f"Opponent Last Bet: {opponent_last_bet}, Previous Bet: {opponent_prev_bet}")
