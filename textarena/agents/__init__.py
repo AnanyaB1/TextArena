@@ -7,7 +7,7 @@ from textarena.agents.basic_agents import (
     HFLocalAgent,
     CerebrasAgent,
     AWSBedrockAgent,
-    AnthropicAgent
+    AnthropicAgent,
 )
 
 from textarena.agents import wrappers

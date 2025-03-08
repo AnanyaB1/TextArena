@@ -1,8 +1,10 @@
-import mcp
-from mcp.client.stdio import stdio_client
-from mcp.client import session as mcp_session
 import json
-from hackathon_code import negotiation
+
+import mcp
+from mcp.client import session as mcp_session
+from mcp.client.stdio import stdio_client
+
+from textarena.hackathon_code import negotiation
 from textarena.core import Agent
 
 VALIDATION_PROMPT = """I am playing a game. Here was the prompt:
@@ -124,24 +126,29 @@ class AsyncAnthropicAgent(Agent):
 
 server_params = mcp.StdioServerParameters(
     command="python",  # Executable
-    args=["hackathon_code/server.py"],  # Optional command line arguments
+    args=["textarena/hackathon_code/server.py"],  # Optional command line arguments
     env=None,  # Optional environment variables
 )
 
 
 class MCPAgent(AsyncAnthropicAgent):
-    def __init__(self, server_params: mcp.StdioServerParameters, *args, **kwargs):
+    def __init__(
+        self, *args, server_params: mcp.StdioServerParameters = server_params, **kwargs
+    ):
         super().__init__(*args, **kwargs)
 
         self.server_params = server_params
 
     async def _make_request(self, observation: str) -> str:
         """Make a single API request to Anthropic and return the generated message."""
+        print("Starting MCP session")
         async with stdio_client(self.server_params) as streams:
             async with mcp_session.ClientSession(*streams) as session:
-
                 try:
+                    await session.initialize()
+                    print("Listing tools")
                     tools_result = await session.list_tools()
+                    print("Tools result:", tools_result)
                     tools = tools_result.model_dump()["tools"]
 
                     tools = [
@@ -248,7 +255,7 @@ class ValidationAgent(Agent):
     def __call__(self, observation):
         for _ in range(self.num_tries):
             print(negotiation.get_trade_value(observation, incoming=True))
-            initial_answer = self.agent(observation)
+            initial_answer = asyncio.run(self.agent(observation))
             validation_prompt = VALIDATION_PROMPT.format(
                 PROMPT=observation, ANSWER=initial_answer
             )

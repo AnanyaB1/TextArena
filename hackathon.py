@@ -1,23 +1,18 @@
 from dotenv import load_dotenv
 
 import textarena as ta
-from hackathon_code import agent
+from textarena.hackathon_code import agent
 
 load_dotenv()
 
 # Initialize agents
 agents = {
-    0: agent.ValidationAgent(
-        ta.agents.AnthropicAgent(model_name="claude-3-5-haiku-20241022")
-    ),
-    # 0: agent.ValidationAgent(
-    #     ta.agents.AnthropicAgent(model_name="claude-3-7-sonnet-20250219")
-    # ),
-    1: ta.agents.HumanAgent()
+    0: agent.ValidationAgent(agent.MCPAgent(model_name="claude-3-5-haiku-20241022")),
+    1: ta.agents.HumanAgent(),
 }
 
 # Initialize environment from subset and wrap it
-env = ta.make(env_id="SpellingBee-v0")
+env = ta.make(env_id="SimpleNegotiation-v0")
 env = ta.wrappers.LLMObservationWrapper(env=env)
 # Optional render wrapper
 # env = ta.wrappers.SimpleRenderWrapper(

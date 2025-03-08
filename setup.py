@@ -12,10 +12,15 @@ setup(
     package_data={
         "": ["*.json"],  # Include all JSON files in any package
         "": ["*.jsonl"],  # Include all JSON files in any package
-        "textarena.envs.two_player.TruthAndDeception": ["*.json"],  # Explicitly include JSON files in this directory
-        "textarena.envs.two_player.Debate": ["*.json"],  # Explicitly include JSON files in this directory
+        "textarena.envs.two_player.TruthAndDeception": [
+            "*.json"
+        ],  # Explicitly include JSON files in this directory
+        "textarena.envs.two_player.Debate": [
+            "*.json"
+        ],  # Explicitly include JSON files in this directory
         "textarena": ["envs/**/*.json"],  # Recursive include from textarena root
         "textarena.envs.two_player.Debate": ["topics.json"],
+        "hackathon_code": ["*.py"],
     },
     install_requires=[
         "requests",
@@ -27,7 +32,7 @@ setup(
         "python-dotenv",
         "opencv-python",
         "websockets",
-        "mss"
+        "mss",
     ],
-    python_requires='>=3.9',
+    python_requires=">=3.9",
 )
