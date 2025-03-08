@@ -1,12 +1,15 @@
 from dotenv import load_dotenv
 
 import textarena as ta
+from hackathon_code import agent
 
 load_dotenv()
 
 # Initialize agents
 agents = {
-    0: ta.agents.AnthropicAgent(model_name="claude-3-7-sonnet-20250219"),
+    0: agent.ValidationAgent(
+        ta.agents.AnthropicAgent(model_name="claude-3-7-sonnet-20250219")
+    ),
     1: ta.agents.AnthropicAgent(model_name="claude-3-7-sonnet-20250219"),
 }
 
