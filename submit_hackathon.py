@@ -18,7 +18,8 @@ EMAIL = "dylanslavinhillier@gmail.com"
 for _ in range(5):
     try:
         agent_ = agent.NormalAgent(
-            agent.MCPAgent(model_name="claude-3-7-sonnet-20250219"),
+            # agent.MCPAgent(model_name="claude-3-7-sonnet-20250219"),
+            agent.MCPAgent(model_name="claude-3-5-haiku-20241022")
             # num_tries=2,
         )
 

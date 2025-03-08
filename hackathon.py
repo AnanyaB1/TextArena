@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 
 import textarena as ta
-from textarena.hackathon_code import agent
+from hackathon_code import agent
 
 load_dotenv()
 
@@ -12,7 +12,7 @@ agents = {
 }
 
 # Initialize environment from subset and wrap it
-env = ta.make(env_id="SimpleNegotiation-v0")
+env = ta.make(env_id="SpellingBee-v0")
 env = ta.wrappers.LLMObservationWrapper(env=env)
 # Optional render wrapper
 # env = ta.wrappers.SimpleRenderWrapper(

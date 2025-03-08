@@ -4,7 +4,6 @@ import mcp
 from mcp.client import session as mcp_session
 from mcp.client.stdio import stdio_client
 
-from textarena.hackathon_code import negotiation
 from textarena.core import Agent
 
 VALIDATION_PROMPT = """I am playing a game. Here was the prompt:
@@ -126,7 +125,7 @@ class AsyncAnthropicAgent(Agent):
 
 server_params = mcp.StdioServerParameters(
     command="python",  # Executable
-    args=["textarena/hackathon_code/server.py"],  # Optional command line arguments
+    args=["hackathon_code/server.py"],  # Optional command line arguments
     env=None,  # Optional environment variables
 )
 
