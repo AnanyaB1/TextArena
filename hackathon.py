@@ -20,10 +20,10 @@ agents = {
 env = ta.make(env_id="SpellingBee-v0")
 env = ta.wrappers.LLMObservationWrapper(env=env)
 # Optional render wrapper
-env = ta.wrappers.SimpleRenderWrapper(
-    env=env,
-    player_names={0: "claude 3.5", 1: "human"},
-)
+# env = ta.wrappers.SimpleRenderWrapper(
+#     env=env,
+#     player_names={0: "claude 3.5", 1: "human"},
+# )
 
 env.reset(num_players=len(agents))
 done = False
