@@ -18,13 +18,12 @@ EMAIL = "dylanslavinhillier@gmail.com"
 for _ in range(5):
     try:
         # agent.MCPAgent(model_name="claude-3-7-sonnet-20250219"),
-        agent_ = agent.ValidationAgent(
+        agent_ = agent.NormalAgent(
             claude_agent=agent.OpenAIMCPAgent(
                 open_router_agent=agent.OpenRouterAgent(
                     model_name="anthropic/claude-3.7-sonnet"
                 )
             ),
-            num_tries=1,
         )
         # num_tries=2,
 
