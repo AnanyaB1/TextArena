@@ -5,12 +5,6 @@ from hackathon_code.spelling_bee import get_longest_word
 mcp = FastMCP("Tools")
 
 
-# @mcp.resource("echo://{message}")
-# def echo_resource(message: str) -> str:
-#     """Echo a message as a resource"""
-#     return f"Resource echo: {message}"
-
-
 @mcp.tool()
 def negotiation_get_trade_value(
     resource_table: str, offer_text: str, incoming: bool
