@@ -8,9 +8,12 @@ load_dotenv()
 # Initialize agents
 agents = {
     0: agent.ValidationAgent(
-        ta.agents.AnthropicAgent(model_name="claude-3-7-sonnet-20250219")
+        ta.agents.AnthropicAgent(model_name="claude-3-5-haiku-20241022")
     ),
-    1: ta.agents.AnthropicAgent(model_name="claude-3-7-sonnet-20250219"),
+    # 0: agent.ValidationAgent(
+    #     ta.agents.AnthropicAgent(model_name="claude-3-7-sonnet-20250219")
+    # ),
+    1: ta.agents.HumanAgent()
 }
 
 # Initialize environment from subset and wrap it
