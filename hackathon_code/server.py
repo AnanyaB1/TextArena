@@ -50,6 +50,12 @@ def spelling_bee_get_word(observation: str) -> str:
     return get_longest_word(observation)
 
 
+@mcp.tool()
+def final_submission(final_response: str) -> str:
+    """Call this when ready to submit"""
+    return final_response
+
+
 # @mcp.prompt()
 # def echo_prompt(message: str) -> str:
 #     """Create an echo prompt"""

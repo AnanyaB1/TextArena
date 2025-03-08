@@ -7,7 +7,14 @@ load_dotenv()
 
 # Initialize agents
 agents = {
-    0: agent.ValidationAgent(agent.MCPAgent(model_name="claude-3-5-haiku-20241022")),
+    0: agent.ValidationAgent(
+        claude_agent=agent.OpenAIMCPAgent(
+            open_router_agent=agent.OpenRouterAgent(
+                model_name="anthropic/claude-3.7-sonnet"
+            )
+        ),
+        num_tries=1,
+    ),
     1: ta.agents.HumanAgent(),
 }
 
