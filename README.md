@@ -9,6 +9,12 @@
 <!-- - **Documentation**: [https://textarena.ai/docs](https://textarena.ai/) -->
 ---
 
+
+# YYDS
+mcp run textarena/hackathon_code/server.py
+
+
+
 ## Example
 ### Installation
 Install TextArena directly from PyPI:

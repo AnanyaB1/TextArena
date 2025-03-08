@@ -5,7 +5,7 @@ import time
 from dotenv import load_dotenv
 
 import textarena as ta
-from hackathon_code import agent
+from textarena.hackathon_code import agent
 
 load_dotenv()
 
@@ -17,13 +17,13 @@ EMAIL = "dylanslavinhillier@gmail.com"
 
 for _ in range(5):
     try:
-        agent_ = agent.ValidationAgent(
-            ta.agents.AnthropicAgent(model_name="claude-3-7-sonnet-20250219"),
-            num_tries=2,
+        agent_ = agent.NormalAgent(
+            agent.MCPAgent(model_name="claude-3-7-sonnet-20250219"),
+            # num_tries=2,
         )
 
         env = ta.make_online(
-            env_id=["SpellingBee-v0"],
+            env_id=["SimpleNegotiation-v0"],
             model_name=MODEL_NAME,
             model_description=MODEL_DESCRIPTION,
             email=EMAIL,

@@ -247,6 +247,14 @@ class MCPAgent(AsyncAnthropicAgent):
             return final_response_text.strip()
 
 
+class NormalAgent(Agent):
+    def __init__(self, claude_agent: AsyncAnthropicAgent):
+        self.agent = claude_agent
+
+    def __call__(self, observation):
+        return asyncio.run(self.agent(observation))
+
+
 class ValidationAgent(Agent):
     def __init__(self, claude_agent: AsyncAnthropicAgent, num_tries: int = 5):
         self.agent = claude_agent
