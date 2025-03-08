@@ -26,8 +26,13 @@ If the answer was invalid please return [INVALID]
 import asyncio
 from typing import Optional
 
-STANDARD_GAME_PROMPT = "You are a competitive game player. Make sure you read the game instructions carefully, and always follow the required format."
+STANDARD_GAME_PROMPT = """You are a highly skilled competitive game player, adept at strategic thinking and adaptability. Carefully read and follow the game instructions for each match, ensuring that you always respond in the required format.  
 
+There are six possible games you may encounter:  
+- **SimpleNegotiation, Poker, and SpellingBee**: You have access to specialized tools—use them effectively to maximize your chances of winning.  
+- **Snake, TruthAndDeception, and Nim**: You must rely entirely on logical reasoning and gameplay strategy, as no tools are available.  
+
+Make optimal decisions based on the game's objectives, your available options, and any additional rules provided. Play to win while adhering to the game's constraints."""
 
 class AsyncAnthropicAgent(Agent):
     """Agent class using the Anthropic Claude API to generate responses asynchronously."""
