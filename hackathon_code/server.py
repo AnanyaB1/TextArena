@@ -1,6 +1,7 @@
 from mcp.server.fastmcp import FastMCP
 from hackathon_code.negotiation import get_trade_value
 from hackathon_code.spelling_bee import get_longest_word
+from hackathon_code.poker import poker_decision
 
 mcp = FastMCP("Tools")
 
@@ -42,6 +43,18 @@ def spelling_bee_get_word(observation: str) -> str:
         The word to submit
     """
     return get_longest_word(observation)
+
+@mcp.tool()
+def poker_get_action(game_text: str) -> str:
+    """
+    FOR THE GAME POKER
+    Gets the recommended action based on the current game state
+    Args:
+        The game text
+    Returns:
+        The recommended action
+    """
+    return poker_decision(game_text)
 
 
 @mcp.tool()
