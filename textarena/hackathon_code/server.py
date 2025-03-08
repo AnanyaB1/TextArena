@@ -1,5 +1,6 @@
 from mcp.server.fastmcp import FastMCP
 from textarena.hackathon_code.negotiation import get_trade_value
+from textarena.hackathon_code.spelling_bee import get_longest_word
 
 mcp = FastMCP("Tools")
 
@@ -34,6 +35,19 @@ def negotiation_get_trade_value(
         The value of the trade to you
     """
     return get_trade_value(resource_table, offer_text, incoming)
+
+@mcp.tool()
+def spelling_bee_get_word(observation: str) -> str:
+    """
+    FOR THE GAME SPELLING BEE
+    Gets the longest possible word to submit given the allowed letters and the word history
+    Args:
+        The big string of the observation
+    Returns:
+        The word to submit
+    """
+    return get_longest_word(observation)
+
 
 
 # @mcp.prompt()
